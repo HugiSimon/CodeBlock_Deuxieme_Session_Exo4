@@ -96,6 +96,58 @@ int main()
     }
 */
     //Exercice 5
+/*
+    int n_long, n_larg, n_i, n_j;
+    char c_c1, c_c2;
 
-    //Hello
+    printf("Quel est la longeur du carre ?\n");
+    scanf("%d", &n_long);
+    printf("Quel est la largeur ?\n");
+    scanf("%d", &n_larg);
+    printf("Le premier caractere ?\n");
+    scanf(" %c", &c_c1);
+    printf("Le deuxieme caracter ?\n");
+    scanf(" %c", &c_c2);
+
+    for (n_i=1;n_i <= n_larg;n_i++){
+        for (n_j=1;n_j <= n_long;n_j++){
+            if (n_i == 1 || n_i == n_larg){
+                printf("%c", c_c1);
+            }else{
+                if (n_j == 1 || n_j == n_long){
+                    printf("%c", c_c1);
+                }else{
+                    printf("%c", c_c2);
+                }
+            }
+        }
+        printf("\n");
+    }
+*/
+    //Exercice 6
+/*
+    int n_enter, n_vomi=1, n_i=0;
+
+    printf("Population totale ?\n");
+    scanf("%d", &n_enter);
+    while (n_vomi < n_enter){
+        n_vomi = n_vomi * 3;
+        n_i++;
+    }
+    printf("Nombre de jour pour que la population soit contamine est de %d", n_i);
+*/
+    //Exercice 7
+/*
+    int n_enter, n_pierre=0, n_i=0;
+
+    printf("Quel est le nombre de pierre disponible ?\n");
+    scanf("%d", &n_enter);
+
+    while (n_pierre + (n_i * n_i) <= n_enter){
+        n_pierre = n_pierre + (n_i * n_i);
+        n_i++;
+    }
+
+    printf("Nombre d etage est de %d et %d pierres", n_i-1, n_pierre);
+*/
 }
