@@ -10,16 +10,18 @@ DEBUT
     ECRIRE "Nombre de ville/village ?"
     LIRE nbr
 
-    POUR i de 1 à nbr FAIRE PAS DE 1
+    POUR i de 1 à nbr FAIRE PAS DE 1 //On boucle le nombre de ville/village qu'on a rencontré
     FAIRE
         ECRIRE "Nombre d'habitant ?"
         LIRE hab
 
-        SI (hab > 10000)
+        SI (hab > 10000) //Si c'est strictement au dessus de 10 000 c'est un ville
         ALORS
-            j <- j + 1
+            j <- j + 1 //Donc on incrémente la variable j
         FINSI
     FINPOUR
+
+    ECRIRE "Il y a " + j + " de villes"
 
 FIN
 
@@ -37,22 +39,22 @@ DEBUT
     ECRIRE "Quel âge avez vous"
     LIRE entre
 
-    SI (entre < 10)
+    SI (entre < 10) //Si on est en dessous de 10 on arrête toute suite
     ALORS
         somme <- somme + 5
-    SINON
-        SI (entre < 60)
+    SINON //Sinon on continue le programme
+        SI (entre < 60) //On vérifie bien qu'on a moins de 60 ans
         ALORS
             somme <- somme + 30
-        FINSI
-    FINSI
 
-    ECRIRE "Quel est le poid de vos bagages"
-    LIRE entre
-    
-    SI (entre => 20)
-    ALORS
-        somme <- somme + 10
+            ECRIRE "Quel est le poid de vos bagages" //C'est que ceux entre 10 ans et 60 ans doivent potentiellement payer pour les bagages
+            LIRE entre
+            
+            SI (entre => 20) //Si c'est plus de 20 kilos, c'est payant
+            ALORS
+                somme <- somme + 10
+            FINSI
+        FINSI //Pas de else, car les personnes au dessus de 60 ans ont rien à payer
     FINSI
 
     ECRIRE "Vous devez " + somme " écus"
@@ -70,18 +72,18 @@ VAR entre, somme=0 : ENTIER
 
 DEBUT
 
-    REPETER
+    REPETER //Rentrer dans la boucle sans condition
     FAIRE
         ECRIRE "Entrer/Sortie"
         LIRE entre
 
-        SI (somme + entre < 250)
+        SI (somme + entre < 250) //Tester si on peut incrémenter
         FAIRE
-            somme = somme + entre
-        SINON
+            somme = somme + entre //Et on incrémente
+        SINON //Et si on peut pas, on affiche le message
             ECRIRE "Impossible, il y a déjà " + somme + " personnes"
         FINSI
-    TANTQUE (entre <> 0)
+    TANTQUE (entre <> 0) //Si on rentre la valeur 0, on sort
 
 FIN
 
@@ -141,6 +143,11 @@ DEBUT
 
     POUR i de 0 à 9 FAIRE PAS DE 1 //C'est à quel ligne on est et c'est quel chiffre utiliser
     FAIRE
+        POUR j de 1 à i FAIRE PAS DE 1 //Le nombre d'espace avant
+        FAIRE
+            ECRIRE " "
+        FINSI
+
         POUR j de 0 à 9-i FAIRE PAS DE 1 //C'est combien de fois il dois répéter le chiffre
         FAIRE
             ECRIRE i 
@@ -168,15 +175,15 @@ DEBUT
     ECRIRE "c2"
     LIRE long, larg, c1, c2
 
-    POUR i de 1 à larg FAIRE PAS DE 1
+    POUR i de 1 à long FAIRE PAS DE 1 //La boucle pour chaque ligne
     FAIRE
-        POUR j de 1 à long FAIRE PAS DE 1
+        POUR j de 1 à larg FAIRE PAS DE 1 //La boucle pour toutes les colones de la ligne
         FAIRE
-            SI (i = 1 OU i = larg)
+            SI (i = 1 OU i = long) //Si on est sur la première lignes ou la dernière
             ALORS
                 ECRIRE c1
             SINON
-                SI (j = 1 OU j = long)
+                SI (j = 1 OU j = larg) //Si on est dans la première colones de la lignes ou la dernière
                 ALORS
                     ECRIRE c1
                 SINON
@@ -184,7 +191,7 @@ DEBUT
                 FINSI
             FINSI
         FINPOUR
-        ECRIRE "\n"
+        ECRIRE "\n" //Un petit saut de ligne
     FINPOUR
 
 FIN
@@ -203,10 +210,10 @@ DEBUT
     ECRIRE "Population totale ?"
     LIRE entre
 
-    TANT QUE (vomi < entre)
+    TANT QUE (vomi < entre) //Tant que vomi n'a pas atteint toute la population
     FAIRE
-        vomi <- vomi * 3
-        i <- i + 1
+        vomi <- vomi * 3 //La contamination de vomi
+        i <- i + 1 //Et l'incrémentation
     FINTANTQUE
 
     ECRIRE "Nombre de jour pour que la population soit contamine est de " + i
@@ -229,8 +236,8 @@ DEBUT
 
     TANT QUE (pierre + (i * i) < entre)
     FAIRE
-        pierre + (i * i)
-        i <- i + 1
+        pierre <- pierre + (i * i) //i augmente à chaque boucle de 1, et on peut utiliser la variable i, i*i qui permet avec l'étage de savoir le nombre de pierre qu'on a besoin
+        i <- i + 1 //L'incrémentation, qui nous sert d'étage
     FINTANTQUE
 
     ECRIRE "Nombre d'étage est de " + i-1 + " et " + pierre + " pierre"
