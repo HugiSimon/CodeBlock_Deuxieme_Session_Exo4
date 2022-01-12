@@ -1,0 +1,238 @@
+Algorithme voyage
+//BUT Connaître le nombre de ville
+//ENTRE Nombre de ville/village puis le nombre d'habitant
+//SORTIE Nombre de ville
+
+VAR nbr, hab, i, j : ENTIER
+
+DEBUT
+
+    ECRIRE "Nombre de ville/village ?"
+    LIRE nbr
+
+    POUR i de 1 à nbr FAIRE PAS DE 1
+    FAIRE
+        ECRIRE "Nombre d'habitant ?"
+        LIRE hab
+
+        SI (hab > 10000)
+        ALORS
+            j <- j + 1
+        FINSI
+    FINPOUR
+
+FIN
+
+---
+
+Algorithme auberge
+//BUT Adapter les prix en fonction du client
+//ENTRE L'âge et le poid des bagages
+//SORTIE Le prix
+
+VAR entre, somme<-0 : ENTIER
+
+DEBUT
+
+    ECRIRE "Quel âge avez vous"
+    LIRE entre
+
+    SI (entre < 10)
+    ALORS
+        somme <- somme + 5
+    SINON
+        SI (entre < 60)
+        ALORS
+            somme <- somme + 30
+        FINSI
+    FINSI
+
+    ECRIRE "Quel est le poid de vos bagages"
+    LIRE entre
+    
+    SI (entre => 20)
+    ALORS
+        somme <- somme + 10
+    FINSI
+
+    ECRIRE "Vous devez " + somme " écus"
+
+FIN
+
+---
+
+Algorithme startToPlay
+//BUT Limiter les entrer
+//ENTRE Nombre de personne sui rentre et sort
+//SORTIE Impossible si il y a trop de monde
+
+VAR entre, somme=0 : ENTIER
+
+DEBUT
+
+    REPETER
+    FAIRE
+        ECRIRE "Entrer/Sortie"
+        LIRE entre
+
+        SI (somme + entre < 250)
+        FAIRE
+            somme = somme + entre
+        SINON
+            ECRIRE "Impossible, il y a déjà " + somme + " personnes"
+        FINSI
+    TANTQUE (entre <> 0)
+
+FIN
+
+---
+
+Algorithme triangle
+//BUT Dessiner un triangle
+//ENTRE rien ＞﹏＜
+//SORTIE Un triangle d=====(￣▽￣*)
+
+VAR i, j : ENTIER
+
+DEBUT
+
+    POUR i de -1 à 6 FAIRE PAS DE 1 //On commence à moins 1 comme ça dés que c'est au dessus de 0, c'est le nombre de fois qu'on répéte "O"
+    FAIRE
+
+        SI (i = -1) //Première ligne, qu'un X
+        FAIRE
+            ECRIRE "X"
+        FINSI
+
+        SI (i = 0) //Deuxième ligne
+        FAIRE
+            ECRIRE "XX"
+        FINSI
+
+        SI (i > 0 ET i < 6) //Les lignes du milieu
+        FAIRE
+            ECRIRE "X"
+
+            POUR j de 1 à i FAIRE PAS DE 1 //Le nombre de fois ou "O" est écrit
+            FAIRE
+                ECRIRE "O"
+            FINPOUR
+
+            ECRIRE "X"
+        FINSI
+
+        SI (i = 6) //Tout les "X" de fin
+        FAIRE
+
+            POUR j de -1 à i FAIRE PAS DE 1
+            FAIRE
+                ECRIRE "X"
+            FINPOUR
+        
+        FINSI
+
+        ECRIRE "\n"
+
+    FINPOUR
+
+FIN
+
+DEBUT
+
+    POUR i de 0 à 9 FAIRE PAS DE 1 //C'est à quel ligne on est et c'est quel chiffre utiliser
+    FAIRE
+        POUR j de 0 à 9-i FAIRE PAS DE 1 //C'est combien de fois il dois répéter le chiffre
+        FAIRE
+            ECRIRE i 
+        FINPOUR
+        ECRIRE "\n"
+    FINPOUR
+
+FIN
+
+---
+
+Algorithme carres
+//BUT Dessiner un carrés
+//ENTRE Longeur, largeur, c1 est c2
+//SORTIE Un carrés
+
+VAR long, larg, i, j : ENTIER
+    c1, c2 : CHAR
+
+DEBUT
+
+    ECRIRE "Longeur"
+    ECRIRE "largeur"
+    ECRIRE "c1"
+    ECRIRE "c2"
+    LIRE long, larg, c1, c2
+
+    POUR i de 1 à larg FAIRE PAS DE 1
+    FAIRE
+        POUR j de 1 à long FAIRE PAS DE 1
+        FAIRE
+            SI (i = 1 OU i = larg)
+            ALORS
+                ECRIRE c1
+            SINON
+                SI (j = 1 OU j = long)
+                ALORS
+                    ECRIRE c1
+                SINON
+                    ECRIRE c2
+                FINSI
+            FINSI
+        FINPOUR
+        ECRIRE "\n"
+    FINPOUR
+
+FIN
+
+---
+
+Algorithme epidemie
+//BUT Calculer le nombre de jour pour contaminé toute une ville
+//ENTRE Nombre de personne
+//SORTIE Nombre de jour
+
+VAR entre, vomi<-1, i<-0 : ENTIER
+
+DEBUT
+
+    ECRIRE "Population totale ?"
+    LIRE entre
+
+    TANT QUE (vomi < entre)
+    FAIRE
+        vomi <- vomi * 3
+        i <- i + 1
+    FINTANTQUE
+
+    ECRIRE "Nombre de jour pour que la population soit contamine est de " + i
+
+FIN
+
+---
+
+Algorithme pyramide
+//BUT Connaître le nombre d'étage en fonction du nombre de pierre
+//ENTRE Nombre de pierre
+//SORTIE Nombre d'étage
+
+VAR entre, pierre<-0, i<-0 : ENTIER
+
+DEBUT
+
+    ECRIRE "Quel est le nombre de pierre disponible ?"
+    LIRE entre
+
+    TANT QUE (pierre + (i * i) < entre)
+    FAIRE
+        pierre + (i * i)
+        i <- i + 1
+    FINTANTQUE
+
+    ECRIRE "Nombre d'étage est de " + i-1 + " et " + pierre + " pierre"
+
+FIN
