@@ -94,11 +94,11 @@ Algorithme triangle
 //ENTRE rien ＞﹏＜
 //SORTIE Un triangle d=====(￣▽￣*)
 
-VAR i, j : ENTIER
+VAR i, j, max=6 : ENTIER
 
 DEBUT
 
-    POUR i de -1 à 6 FAIRE PAS DE 1 //On commence à moins 1 comme ça dés que c'est au dessus de 0, c'est le nombre de fois qu'on répéte "O"
+    POUR i de -1 à max FAIRE PAS DE 1 //On commence à moins 1 comme ça dés que c'est au dessus de 0, c'est le nombre de fois qu'on répéte "O"
     FAIRE
 
         SI (i = -1) //Première ligne, qu'un X
@@ -111,7 +111,7 @@ DEBUT
             ECRIRE "XX"
         FINSI
 
-        SI (i > 0 ET i < 6) //Les lignes du milieu
+        SI (i > 0 ET i < max) //Les lignes du milieu
         FAIRE
             ECRIRE "X"
 
@@ -123,7 +123,7 @@ DEBUT
             ECRIRE "X"
         FINSI
 
-        SI (i = 6) //Tout les "X" de fin
+        SI (i = max) //Tout les "X" de fin
         FAIRE
 
             POUR j de -1 à i FAIRE PAS DE 1

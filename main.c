@@ -29,7 +29,7 @@ int main()
 
     if (n_enter < 10) { //Si on est en dessous de 10 on arrête toute suite
         n_somme = n_somme + 5;
-    }else{ //Sinon on continue le programme
+    }else //Sinon on continue le programme
         if (n_enter < 60) { //On vérifie bien qu'on a moins de 60 ans
             n_somme = n_somme + 30;
 
@@ -40,7 +40,6 @@ int main()
                 n_somme = n_somme + 10;
             }
         } //Pas de else, car les personnes au dessus de 60 ans ont rien à payer
-    }
 
     printf("Vous devez %d ecus", n_somme);
 */
@@ -61,23 +60,23 @@ int main()
 */
     //Exercice 4
 /*
-    int n_i, n_j;
+    int n_i, n_j, max=6;
 
-    for (n_i=-1;n_i <= 6;n_i++){ //On commence à moins 1 comme ça dés que c'est au dessus de 0, c'est le nombre de fois qu'on répéte "O"
+    for (n_i=-1;n_i <= max;n_i++){ //On commence à moins 1 comme ça dés que c'est au dessus de 0, c'est le nombre de fois qu'on répéte "O"
         if (n_i == -1) {
             printf("X"); //Première ligne, qu'un X
         }
         if (n_i == 0) { //Deuxième ligne
             printf("XX");
         }
-        if (n_i > 0 && n_i < 6) { //Les lignes du milieu
+        if (n_i > 0 && n_i < max) { //Les lignes du milieu
             printf("X");
             for (n_j=1;n_j <= n_i;n_j++) { //Le nombre de fois ou "O" est écrit
                 printf("O");
             }
             printf("X");
         }
-        if (n_i == 6) { //Tout les "X" de fin
+        if (n_i == max) { //Tout les "X" de fin
             for (n_j=-1;n_j <= n_i;n_j++) {
                 printf("X");
             }
@@ -85,12 +84,15 @@ int main()
         printf("\n");
     }
 
+    printf("\n");
+
     for (n_i=0;n_i <= 9;n_i++) { //C'est à quel ligne on est et c'est quel chiffre utiliser
-        for (n_j=1;n_j <= n_i;n_j++) { //Le nombre d'espace avant
-            printf(" ");
-        }
-        for (n_j=0;n_j <= 9 - n_i;n_j++) { //C'est combien de fois il dois répéter le chiffre
-            printf("%d", n_i);
+        for (n_j=0;n_j <= 9;n_j++) { //Le nombre d'espace avant
+            if (n_j < n_i){
+                printf(" ");
+            }else{
+                printf("%d", n_i);
+            }
         }
         printf("\n");
     }
@@ -102,30 +104,32 @@ int main()
 
     printf("Quel est la longeur du carre ?\n"); //Toutes les questions
     scanf("%d", &n_long);
+    getchar();
     printf("Quel est la largeur ?\n");
     scanf("%d", &n_larg);
+    getchar();
     printf("Le premier caractere ?\n");
-    scanf(" %c", &c_c1);
+    scanf("%c", &c_c1);
+    getchar();
     printf("Le deuxieme caracter ?\n");
-    scanf(" %c", &c_c2);
+    scanf("%c", &c_c2);
+    getchar();
 
     for (n_i=1;n_i <= n_long;n_i++){ //La boucle pour chaque ligne
         for (n_j=1;n_j <= n_larg;n_j++){ //La boucle pour toutes les colones de la ligne
             if (n_i == 1 || n_i == n_long){ //Si on est sur la première lignes ou la dernière
                 printf("%c", c_c1);
+            }else if (n_j == 1 || n_j == n_larg){ //Si on est dans la première colones de la lignes ou la dernière
+                printf("%c", c_c1);
             }else{
-                if (n_j == 1 || n_j == n_larg){ //Si on est dans la première colones de la lignes ou la dernière
-                    printf("%c", c_c1);
-                }else{
-                    printf("%c", c_c2);
-                }
+                printf("%c", c_c2);
             }
         }
         printf("\n"); //Un petit saut de ligne
     }
 */
     //Exercice 6
-/*
+
     int n_enter, n_vomi=1, n_i=0;
 
     printf("Population totale ?\n");
@@ -137,9 +141,9 @@ int main()
     }
 
     printf("Nombre de jour pour que la population soit contamine est de %d", n_i);
-*/
-    //Exercice 7
 
+    //Exercice 7
+/*
     int n_enter, n_pierre=0, n_i=0;
 
     printf("Quel est le nombre de pierre disponible ?\n");
@@ -151,5 +155,5 @@ int main()
     }
 
     printf("Nombre d etage est de %d et %d pierres", n_i-1, n_pierre);
-
+*/
 }
